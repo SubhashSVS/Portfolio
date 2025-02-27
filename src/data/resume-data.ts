@@ -45,7 +45,33 @@ const resumeData = {
             endyear : '2021'
         }
     ],
-    skills : ['JavaScript','TypeScript','React.js','Next.js','Node.js','Express','MongoDB','Tailwind CSS','PostgreSQL','Git','Docker','C++','DSA'],    
+    skills : ['JavaScript','TypeScript','React.js','Next.js','Node.js','Express','MongoDB','Tailwind CSS','PostgreSQL','Git','Docker','C++','DSA'],
+    projects : [
+        {
+            name : 'Fullstack Payments App',
+            description : 'This web app enables users to sign up, authenticate, and manage wallet balances, allowing payments to other users via a search feature.',
+            skills : ['React.js', 'JavaScript', 'Node.js', 'Express', 'Mongo DB', 'JWT'],
+            link : "https://github.com/SubhashSVS/payment-app"
+        },
+        {
+            name : 'Blog Website',
+            description : 'A simple blogging website where users can view and publish blogs. Implemented proper authentication for secured session management.',
+            skills : ['React.js', 'TypeScript', 'Clouflare','Hono.js', 'Prisma', 'PostgreSQL'],
+            link : "https://github.com/SubhashSVS/Blog-site"
+        },
+        {
+            name : 'Portfolio Website',
+            description : 'A Frontend project which is a simple portfolio website with a very minimal design, visual and responsive UI.',
+            skills : ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shad CN'],
+            link : "https://github.com/SubhashSVS/Portfolio"
+        },
+        {
+            name : 'Todo List',
+            description : 'Simple To-Do application where a user can input tasks with options to mark them done when completed,etc..',
+            skills : ['React.js','Javascript', 'Mongo DB', 'Tailwind CSS'],
+            link : 'https://github.com/SubhashSVS/Todo-app'
+        }
+    ]    
 }
 
 export default resumeData;

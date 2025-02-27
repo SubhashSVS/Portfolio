@@ -6,12 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import EducationCard from '@/components/educationCard';
 import SkillsCard from '@/components/skillsCard';
+import ProjectCard from '@/components/projectCard';
 
 export default function Home() {
   return (
-    <div className='flex-col mx-auto w-full max-w-3xl p-4 md:p-10 lg:p-16'>
+    <div className='flex-col mx-auto w-full max-w-3xl p-4 md:p-10 lg:p-16 space-y-4'>
       <div>
-        <div className='text-3xl font-bold my-2'>
+        <div className='text-2xl font-bold my-2'>
           {resume.name}
         </div>
         <div className='flex font-mono text-pretty text-muted-foreground my-1 gap-x-[10%]'>
@@ -59,32 +60,42 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <div className='text-2xl font-bold my-4'>
+        <div className='text-xl font-bold my-3'>
           About
         </div>
         <div className='font-mono text-muted-foreground text-pretty'>
-          {resume.about.split('\n').map((para) => (
-            <p className='mb-4'>
+          {resume.about.split('\n').map((para,index) => (
+            <p className='mb-4' key={index}>
               {para}
             </p>
           ))}
         </div>
       </div>
       <div>
-        <div className='text-2xl font-bold my-4'>
+        <div className='text-xl font-bold my-3'>
           Education
         </div>
         <div className='flex-col gap-y-2'>
-              {resume.education.map(item => (
-                <EducationCard {...item} />
+              {resume.education.map((item,index) => (
+                <EducationCard {...item} key={index} />
               ))}
         </div>
       </div>
       <div>
-        <div className='text-2xl font-bold'>
+        <div className='text-xl font-bold'>
           Skills
         </div>
         <SkillsCard skills={resume.skills} />
+      </div>
+      <div>
+        <div className='text-xl font-bold my-4'>
+            Projects
+        </div>   
+        <div className='grid grid-cols-2 gap-4'>
+          {resume.projects.map(project => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
       </div>
     </div>
   );
