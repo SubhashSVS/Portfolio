@@ -92,8 +92,8 @@ export default function Home() {
             Projects
         </div>   
         <div className='grid grid-cols-2 gap-4'>
-          {resume.projects.map(project => (
-            <ProjectCard {...project} />
+          {resume.projects.map((project,index) => (
+            <ProjectCard {...project} key={index} />
           ))}
         </div>
       </div>
