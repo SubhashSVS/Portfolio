@@ -1,14 +1,17 @@
-import { GitHubIcon } from '@/components/icons';
+import resume from '@/data/resume-data'
+
+import { GlobeIcon, MailIcon, PhoneIcon } from 'lucide-react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import resume from '@/data/resume-data'
-import { GlobeIcon, MailIcon, PhoneIcon } from 'lucide-react';
+import EducationCard from '@/components/educationCard';
+import SkillsCard from '@/components/skillsCard';
 
 export default function Home() {
   return (
     <div className='flex-col mx-auto w-full max-w-3xl p-4 md:p-10 lg:p-16'>
       <div>
-        <div className='text-2xl font-bold my-1'>
+        <div className='text-3xl font-bold my-2'>
           {resume.name}
         </div>
         <div className='flex font-mono text-pretty text-muted-foreground my-1 gap-x-[10%]'>
@@ -39,7 +42,7 @@ export default function Home() {
                 </a>
               </Button>
               {resume.contact.socials.map(social => (
-                <Button className='size-8' variant="outline">
+                <Button className='size-8' variant="outline" key={social.key}>
                   <a href={social.link} >
                     <social.icon className="size-4"/>
                   </a>
@@ -54,6 +57,34 @@ export default function Home() {
             </Avatar>
           </div>
         </div>
+      </div>
+      <div>
+        <div className='text-2xl font-bold my-4'>
+          About
+        </div>
+        <div className='font-mono text-muted-foreground text-pretty'>
+          {resume.about.split('\n').map((para) => (
+            <p className='mb-4'>
+              {para}
+            </p>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div className='text-2xl font-bold my-4'>
+          Education
+        </div>
+        <div className='flex-col gap-y-2'>
+              {resume.education.map(item => (
+                <EducationCard {...item} />
+              ))}
+        </div>
+      </div>
+      <div>
+        <div className='text-2xl font-bold'>
+          Skills
+        </div>
+        <SkillsCard skills={resume.skills} />
       </div>
     </div>
   );
